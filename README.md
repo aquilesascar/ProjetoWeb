@@ -59,7 +59,7 @@ um novo banco de dados, mas sim se conecta a um banco existente
 chamado `aula` e cria um esquema próprio dentro dele.
 
 * **Banco de Dados:** `aula`
-* **Esquema (Schema):** `aquiles_ascar` (ou o seu nome de usuário, conforme Requisito R3)
+* **Esquema (Schema):** `aquiles_ascar` 
 * **Tabelas:** `aquiles_ascar.autor` e `aquiles_ascar.livro`
 
 #### Como se Conectar ao Banco (DBeaver / pgAdmin)
