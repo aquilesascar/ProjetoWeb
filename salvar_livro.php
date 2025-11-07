@@ -8,8 +8,6 @@ $isbn = $_POST['txtIsbn'];
 $ano = $_POST['txtAno'];
 $id_autor = $_POST['txtAutor'];
 
-// 2. Montar o SQL de UPDATE
-// (Troque 'aquiles_ascar' pelo seu esquema)
 $sql = "UPDATE aquiles_ascar.livro 
 		SET 
 			titulo = '$titulo', 

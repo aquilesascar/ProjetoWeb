@@ -1,9 +1,8 @@
 <?php
 include 'conecta.php';
 
-// (Troque 'aquiles_ascar' pelo seu esquema)
 $sql = "SELECT 
-			l.id_livro, -- PRECISAMOS DO ID AGORA
+			l.id_livro,
 			l.titulo, 
 			l.ano_publicacao, 
 			a.nome AS nome_autor 
@@ -36,18 +35,15 @@ $result = pg_query($conexao, $sql);
 						echo "<p><strong>Autor:</strong> " . htmlspecialchars($linha['nome_autor']) . "</p>";
 						echo "<p><strong>Ano:</strong> " . htmlspecialchars($linha['ano_publicacao']) . "</p>";
 						
-						// --- INÍCIO DAS MUDANÇAS ---
 						// Botões de Ação (Editar e Excluir)
 						echo "<div class='action-buttons'>";
-						
-						// 1. Botão Editar (Update)
+	
 						//    Cria um formulário que envia o ID para 'editar_livro.php'
 						echo "<form action='editar_livro.php' method='GET' style='flex: 1;'>
 								<input type='hidden' name='id' value='$id_livro_atual' />
 								<input type='submit' value='Editar' class='btn-edit' style='width: 100%;' />
 							  </form>";
 						
-						// 2. Botão Excluir (Delete)
 						//    Cria um formulário que envia o ID para 'excluir_livro.php'
 						echo "<form action='excluir_livro.php' method='POST' style='flex: 1;'>
 								<input type='hidden' name='id' value='$id_livro_atual' />
@@ -56,7 +52,6 @@ $result = pg_query($conexao, $sql);
 							  </form>";
 						
 						echo "</div>"; // Fim de .action-buttons
-						// --- FIM DAS MUDANÇAS ---
 						
 						echo "</div>"; // Fim de .list-item
 					}

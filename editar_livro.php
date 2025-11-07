@@ -1,15 +1,12 @@
 <?php
 include 'conecta.php';
 
-// 1. Verificar se o ID foi recebido
 if(!isset($_GET['id'])) {
 	die("ID do livro não fornecido.");
 }
 
 $id_livro = $_GET['id'];
 
-// 2. Buscar os dados do livro que será editado
-// (Troque 'aquiles_ascar' pelo seu esquema)
 $sql_livro = "SELECT * FROM aquiles_ascar.livro WHERE id_livro = $id_livro";
 $res_livro = pg_query($conexao, $sql_livro);
 
@@ -19,9 +16,6 @@ if(!$res_livro || pg_num_rows($res_livro) == 0) {
 // Armazena os dados do livro
 $livro = pg_fetch_assoc($res_livro);
 
-
-// 3. Buscar todos os autores para o dropdown (como em cad_livro.php)
-// (Troque 'aquiles_ascar' pelo seu esquema)
 $sql_autores = "SELECT * FROM aquiles_ascar.autor ORDER BY nome";
 $res_autores = pg_query($conexao, $sql_autores);
 
