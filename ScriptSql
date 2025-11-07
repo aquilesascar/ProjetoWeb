@@ -1,0 +1,22 @@
+CREATE SCHEMA IF NOT EXISTS aquiles_ascar;
+
+-- Tabela 'Autor'
+CREATE TABLE IF NOT EXISTS aquiles_ascar.autor (
+  id_autor SERIAL PRIMARY KEY,
+  nome VARCHAR(255) NOT NULL,
+  data_nascimento DATE NULL
+);
+
+-- Tabela 'Livro'
+CREATE TABLE IF NOT EXISTS aquiles_ascar.livro (
+  id_livro SERIAL PRIMARY KEY,
+  titulo VARCHAR(255) NOT NULL,
+  isbn VARCHAR(13) NULL,
+  ano_publicacao INT NULL,
+  id_autor INT NOT NULL,
+  
+  CONSTRAINT fk_livro_autor
+    FOREIGN KEY (id_autor)
+    REFERENCES aquiles_ascar.autor (id_autor)
+    ON DELETE CASCADE
+);
